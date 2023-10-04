@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: pip install -r requirements.txt
-      - run:  prefect cloud login --key  $Key  --workspace noah-github 
+      - run:  prefect cloud login --key  $Key 
       - name: Create Prefect Infastructure & Storage Blocks 
         run: python k8_infra_setup.py 
       - name: Deply to prefect
