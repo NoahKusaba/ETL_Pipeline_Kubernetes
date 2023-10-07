@@ -7,6 +7,7 @@ load_dotenv()
 
 id = os.getenv('ID')
 key = os.getenv('KEY')
+
 @flow(name ="Get_Activity")
 def main():
     activity_suggestion = requests.get("https://www.boredapi.com/api/activity/").json()['activity']
