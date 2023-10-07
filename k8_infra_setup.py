@@ -1,13 +1,15 @@
 from prefect.infrastructure import KubernetesJob
 from prefect.filesystems import GitHub
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 def github_storageBlock():
     storage_block = GitHub(
         repository = os.environ["REP_URL"],
         access_token =  os.environ["ACCESS_TOKEN"]  
     )
-    storage_block.save("ETL_Pipeline_Kubernetes", overwrite = True)
+    storage_block.save("etl-kubernetes", overwrite = True)
 
 def get_requirements():
     #This variable will contain all needed packages
