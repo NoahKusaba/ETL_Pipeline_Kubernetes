@@ -8,6 +8,7 @@ jobs:
     env:
       KEY: ${{secrets.PREFECT_API_KEY}}
       REP_URL: ${{vars.REP_URL}}
+      ACCESS_TOKEN: ${{secrets.ACCESS_TOKEN}}
     steps:
       - uses: actions/checkout@v4
       - run: pip install -r requirements.txt
