@@ -22,8 +22,10 @@ def get_requirements():
 
 
 def main():
-    github_storageBlock()
+    
     packages = get_requirements()
+    breakpoint()
+    github_storageBlock()
     k8s_job = KubernetesJob(
         image="prefecthq/prefect:2.0a11-python3.8",
         image_pull_policy="Always",
