@@ -4,7 +4,7 @@ on: [push]
 jobs:
   upload-script-kubernetes:
     runs-on: ubuntu-latest
-    container: 
+    container: prefecthq/prefect:2.8.2-python3.9
     env:
       KEY: ${{secrets.PREFECT_API_KEY}}
       REP_URL: ${{vars.REP_URL}}
