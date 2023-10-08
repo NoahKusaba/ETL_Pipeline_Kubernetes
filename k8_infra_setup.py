@@ -21,13 +21,13 @@ def get_requirements():
     return packages
 
 
-def main():
+def k8_infraBlock():
     
     packages = get_requirements()
     # breakpoint()
-    github_storageBlock()
+    
     k8s_job = KubernetesJob(
-        image="prefecthq/prefect:2.0a11-python3.8",
+        image="prefecthq/prefect:2.8.2-python3.9",
         image_pull_policy="Always",
         env={"EXTRA_PIP_PACKAGES": packages},
     )
@@ -36,4 +36,5 @@ def main():
 
 
 if  __name__ == "__main__":
-    main()
+    github_storageBlock()
+    k8_infraBlock()
