@@ -5,8 +5,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-id = os.getenv('ID')
-key = os.getenv('KEY')
+
 
 @flow(name ="Get_Activity")
 def main():
@@ -14,6 +13,9 @@ def main():
     send_email(activity_suggestion)
 
 def send_email(activity):
+    id = os.getenv('ID')
+    key = os.getenv('KEY')
+    print(id)
     email_client = client('ses', region_name='us-east-1', aws_access_key_id= id, aws_secret_access_key= key)
     response = email_client.send_email(
     Destination={ 'ToAddresses': ['nkusaba@bearcognition.com'] },
