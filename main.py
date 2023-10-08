@@ -1,4 +1,4 @@
-from prefect import flow
+from prefect import flow, get_run_logger
 import requests
 from boto3 import client
 import os
@@ -13,9 +13,11 @@ def main():
     send_email(activity_suggestion)
 
 def send_email(activity):
+    logger = get_run_logger()
     id = os.getenv('ID')
     key = os.getenv('KEY')
     print(id)
+    logger.info(id)
     email_client = client('ses', region_name='us-east-1', aws_access_key_id= id, aws_secret_access_key= key)
     response = email_client.send_email(
     Destination={ 'ToAddresses': ['nkusaba@bearcognition.com'] },
