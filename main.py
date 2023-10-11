@@ -7,7 +7,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-secret_block = Secret.load("aws-creds") ## Change This for HIPAA
+secret_block = Secret.load("aws-creds") 
 secret_response = secret_block.get()
 aws_auth =  loads(secret_response)
 id = aws_auth['id']
