@@ -1,0 +1,25 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: default
+  name: final-role
+rules:
+- apiGroups: ["batch"]
+  resources: ["pods", "jobs",]
+  verbs: [ "get", "list", "create", "update", "patch", "delete"]
+
+- apiGroups: [""]
+  resources: ["pods", "jobs", "services", "configmaps", "namespaces"] 
+  verbs: [ "get", "list", "watch", "create", "update", "patch", "delete"]
+
+
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: kube-system
+  name: roles-kubes
+rules:
+- apiGroups: [""]
+  resources: ["pods", "jobs", "services", "configmaps", "namespaces"]  # Add the resources you need access to
+  verbs: ["get", "list", "watch", "create", "update", "patch", "delete" ]

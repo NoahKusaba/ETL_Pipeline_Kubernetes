@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prefect-agent
+  namespace: default
+  labels:
+    app: prefect-agent
+spec:
+
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prefect-agent
+  template:
+    metadata:
+      labels:
+        app: prefect-agent
+    spec:
+      serviceAccountName: final-service
+      containers:
+      - name: prefect-agent
+        image: noahkusaba/prefect-agent-k8:latest
+        ports:
+        - containerPort: 82
+        resources:
+          requests: 
+            cpu: 100m
+            memory: 300Mi
+          limits: 
+            memory: 600Mi
