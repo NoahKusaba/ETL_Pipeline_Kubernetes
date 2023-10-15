@@ -22,7 +22,6 @@ def get_requirements():
 
 
 def k8_infraBlock():
-    
     packages = get_requirements()
     k8s_job = KubernetesJob(
         image="prefecthq/prefect:2.8.2-python3.9",
