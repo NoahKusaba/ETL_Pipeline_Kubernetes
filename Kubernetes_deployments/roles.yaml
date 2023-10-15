@@ -5,7 +5,7 @@ metadata:
   name: final-role
 rules:
 - apiGroups: ["batch"]
-  resources: ["pods", "jobs",]
+  resources: ["pods", "jobs"]
   verbs: [ "get", "list", "create", "update", "patch", "delete"]
 
 - apiGroups: [""]

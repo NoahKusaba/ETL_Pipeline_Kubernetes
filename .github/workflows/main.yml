@@ -16,4 +16,4 @@ jobs:
       - name: Create Prefect Infastructure & Storage Blocks 
         run: python k8_infra_setup.py 
       - name: Deply to prefect
-        run: prefect deployment build main.py:main -n noahKubernetes -p default-agent-pool -sb github/etl-kubernetes -ib kubernetes-job/k8s-flow -a
+        run: prefect deployment build main.py:main --cron "0 8 * * *" --timezone="America/New_York"  -n noahKubernetes -p default-agent-pool -sb github/etl-kubernetes -ib kubernetes-job/k8s-flow -a

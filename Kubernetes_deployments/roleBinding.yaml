@@ -25,4 +25,4 @@ roleRef: # points to the Role
 subjects: # points to the ServiceAccount
 - kind: ServiceAccount
   name: final-service # service account to bind to
-  namespace: kube-system # ns of service account
+  namespace: default # ns of service account
